@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPT-3 Response</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div>
+        <h2>Warmup</h2>
+        {% for exercise in data['warmup'] %}
+          <p>
+            {{ exercise['exercise'] }}
+            {% if exercise['repetitions'] != 'null' %}: {{ exercise['repetitions'] }} reps {% endif %}
+            {% if exercise['time'] != 'null' %}: {{ exercise['time'] }} sec {% endif %}
+          </p>
+        {% endfor %}
+      </div>
+      <div>
+        <h2>Main</h2>
+        {% for exercise in data['main'] %}
+          <p>
+            {{ exercise['exercise'] }}
+            {% if exercise['repetitions'] != 'null' %}: {{ exercise['repetitions'] }} reps {% endif %}
+            {% if exercise['time'] != 'null' %}: {{ exercise['time'] }} sec {% endif %}
+          </p>
+        {% endfor %}
+      </div>
+      <div>
+        <h2>Cooldown</h2>
+        {% for exercise in data['cooldown'] %}
+          <p>
+            {{ exercise['exercise'] }}
+            {% if exercise['repetitions'] != 'null' %}: {{ exercise['repetitions'] }} reps {% endif %}
+            {% if exercise['time'] != 'null' %}: {{ exercise['time'] }} sec {% endif %}
+          </p>
+        {% endfor %}
+      </div>
+      
+    <a href="{{ url_for('home') }}">Ask another question</a>
+</body>
+</html>

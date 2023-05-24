@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Web App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Fitness Program Generator</h1>
+    <form id="fitnessForm" method="POST">
+        <label for="fitnessLevel">Your fitness level:</label>
+        <select name="fitnessLevel" id="fitnessLevel">
+            <option value="Beginner">Beginner</option>
+            <option value="Medium">Medium</option>
+            <option value="Advanced">Advanced</option>
+        </select>
+        <label for="equipment">Available equipment:</label>
+        <select name="equipment" id="equipment">
+            <option value="Bodyweight only">Bodyweight only</option>
+            <option value="Gym access">Gym access</option>
+        </select>
+        <input type="submit" value="Generate Program">
+    </form>
+    <div id="loading" style="display: none;">Loading...</div>
+    <div id="result"></div>
+</body>
+</html>
