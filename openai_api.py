@@ -2,7 +2,7 @@
 import openai
 import json
 
-openai.api_key = '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'
+openai.api_key = 'openai'
 
 def generate_workout(fitnessLevel, equipment):
     prompt = f"""
