@@ -1,12 +1,15 @@
-# openai_api.py
+from dotenv import load_dotenv
+import os
 import openai
 import json
 
-openai.api_key = 'openai-key'
+load_dotenv()
+openai.api_key = os.getenv('OPENAI_KEY')
+print(f"OpenAI Key: {os.getenv('OPENAI_KEY')}")
 
 def generate_workout(fitnessLevel, equipment):
     prompt = f"""
-        You are an AI fitness coach. Your task is to provide a Strength & Conditioning fitness program for a person with a {fitnessLevel} fitness level. The person has {equipment} available for their workouts. The program should be 45 minutes long, with a structure consisting of a 10-minute warmup, a 30-minute main section, and a 5-minute cooldown. Each section should consist of a list of exercises, with each exercise being represented as a dictionary with the keys 'exercise', 'repetitions', and 'time'. The output should be strictly in JSON format, and it should not include any additional information. Each exercise must include either "repetition" or "time", but not both. If there are no "time" or "repetitions" required for the exercise set it as "null". Here is an example of the required output format:
+        You are an AI fitness coach. Your task is to provide a Strength & Conditioning fitness program for the person with a {fitnessLevel} fitness level. The person has {equipment} available for their workouts. The program should be 45 minutes duration, with a structure consisting of a warmup, a main section, and a cooldown. Each section should consist of a list of exercises, with each exercise being represented as a dictionary with the keys 'exercise', 'repetitions', and 'time'. The output should be strictly in JSON format, and it should not include any additional information. Each exercise must include either "repetition" or "time", but not both. If there are no "time" or "repetitions" required for the exercise set it as "null". Here is an example of the required output format:
 
         {{
             "warmup": [
