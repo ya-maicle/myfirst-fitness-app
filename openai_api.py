@@ -5,7 +5,6 @@ import json
 
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_KEY')
-print(f"OpenAI Key: {os.getenv('OPENAI_KEY')}")
 
 def generate_workout(fitnessLevel, equipment):
     prompt = f"""
